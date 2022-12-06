@@ -1,5 +1,36 @@
 <div class="content_main">
-    <button id="upload_button" (click)="click_file_input()">Upload a photo</button>
-    <input type="file" accept='image/*' id="file" (change)="data_service.handleFileInput($event)" hidden><br/>
-    <img *ngIf="data_service.image!=undefined" [src]="data_service.image" style="height: 200px;width: 200px;" alt="Dummy"/>
+    <div class="page_separators">
+        <button id="upload_button" (click)="click_file_input()">Upload a photo</button>
+        <input type="file" accept='image/*' id="file" (change)="data_service.handleFileInput($event)" hidden><br/>
+    
+        <img *ngIf="data_service.image!=undefined" [src]="data_service.image" id="image_elem" style="height: 200px;width: 200px;" alt="Dummy"/>
+    </div>
+    <div class="page_separators">
+
+        <div id="input_panel" *ngIf="data_service.image!=undefined">
+            <mat-grid-list cols="3" rowHeight="50px">
+                <mat-grid-tile colspan="1" rowspan="1" >Width</mat-grid-tile>
+                <mat-grid-tile colspan="2" rowspan="1" >
+                    <input type="number" min="0"  (input)="resize_image()" [(ngModel)]="photoparams.width" placeholder="width"/>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="1" rowspan="1" >Height</mat-grid-tile>
+                <mat-grid-tile colspan="2" rowspan="1" >
+                    <input type="number" min="0" (input)="resize_image()" [(ngModel)]="photoparams.height" placeholder="height"/>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="1" rowspan="1" >Format</mat-grid-tile>
+                <mat-grid-tile colspan="2" rowspan="1" >
+                    <select (input)="resize_image()" [(ngModel)]="photoparams.format">
+                        <option value="jpg">JPG</option>
+                        <option value="png">PNG</option>
+                        <option value="gif">GIF</option>
+                    </select>
+                </mat-grid-tile>
+            </mat-grid-list>      
+            
+           
+            <a *ngIf="!([null,0].includes(photoparams.width)||[null,0].includes(photoparams.height))" [href]="data_service.resized_image" download="resized.{{photoparams.format}}">DOWNLOAD</a>
+        </div>
+    </div>
+    
+   
 </div>

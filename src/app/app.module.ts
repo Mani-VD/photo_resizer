@@ -7,6 +7,8 @@ import { DataService } from './data.service';
 import { PhotoappComponent } from './photoapp/photoapp.component';
 import { PhotoheaderComponent } from './photoheader/photoheader.component';
 import { PhotofooterComponent } from './photofooter/photofooter.component';
+import { FormsModule } from '@angular/forms';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { PhotofooterComponent } from './photofooter/photofooter.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    MatGridListModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
