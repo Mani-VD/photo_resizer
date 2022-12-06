@@ -1,0 +1,5 @@
+<div class="content_main">
+    <button id="upload_button" (click)="click_file_input()">Upload a photo</button>
+    <input type="file" accept='image/*' id="file" (change)="data_service.handleFileInput($event)" hidden><br/>
+    <img *ngIf="data_service.image!=undefined" [src]="data_service.image" style="height: 200px;width: 200px;" alt="Dummy"/>
+</div>

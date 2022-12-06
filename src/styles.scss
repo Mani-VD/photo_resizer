@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+html, body{
+    height: 100%;
+    // padding: 0;
+    margin: 0;
+
+   }
+.content_main{
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+}
