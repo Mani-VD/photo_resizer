@@ -5,10 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
   image: string|ArrayBuffer|null|undefined=undefined;
+  file_data:any=undefined;
   resized_image:string|ArrayBuffer|null|undefined=undefined;
   constructor() { }
   handleFileInput(data: any) {
     let files = data.target.files[0];
+    this.file_data=files;
+    console.log(files,"fies")
     // console.log(files, "files");
     var reader = new FileReader();
     reader.readAsDataURL(files);

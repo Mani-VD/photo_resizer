@@ -17,18 +17,20 @@
                 <mat-grid-tile colspan="2" rowspan="1" >
                     <input type="number" min="0" (input)="resize_image()" [(ngModel)]="photoparams.height" placeholder="height"/>
                 </mat-grid-tile>
-                <mat-grid-tile colspan="1" rowspan="1" >Format</mat-grid-tile>
+                <!-- <mat-grid-tile colspan="1" rowspan="1" >Format</mat-grid-tile>
                 <mat-grid-tile colspan="2" rowspan="1" >
-                    <select (input)="resize_image()" [(ngModel)]="photoparams.format">
+                    <select (change)="resize_image()" [(ngModel)]="photoparams.format">
                         <option value="jpg">JPG</option>
                         <option value="png">PNG</option>
                         <option value="gif">GIF</option>
                     </select>
-                </mat-grid-tile>
+                </mat-grid-tile> -->
             </mat-grid-list>      
             
            
-            <a *ngIf="!([null,0].includes(photoparams.width)||[null,0].includes(photoparams.height))" [href]="data_service.resized_image" download="resized.{{photoparams.format}}">DOWNLOAD</a>
+            <a *ngIf="!([null,0].includes(photoparams.width)||[null,0].includes(photoparams.height))" [href]="data_service.resized_image" download="{{data_service.file_data['name']}}">
+                <button id="download_button">DOWNLOAD</button>
+            </a>
         </div>
     </div>
     
