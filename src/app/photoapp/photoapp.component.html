@@ -1,5 +1,5 @@
 <div class="content_main">
-    <div class="page_separators">
+    <div class="page_separators" DropZone (onFileDropped)="getFiles($event)">
         <button id="upload_button" (click)="click_file_input()">Upload a photo</button>
         <input type="file" accept='image/*' id="file" (change)="data_service.handleFileInput($event)" hidden><br/>
     

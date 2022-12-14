@@ -14,6 +14,13 @@ photoparams={width:0,height:0};
 click_file_input(){
   (document.getElementById("file"))?.click();
 }
+getFiles(event:any){
+console.log(event,"ev")
+if(event.length>0){
+  this.data_service.get_data_from_inp(event[0])
+}
+}
+
 async resize_image(){
   
   console.log("Changes",this.photoparams)
@@ -30,8 +37,8 @@ async resize_image(){
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d");
 
-  const originalWidth = imgToResize.width;
-  const originalHeight = imgToResize.height;
+  // const originalWidth = imgToResize.width;
+  // const originalHeight = imgToResize.height;
 
   const canvasWidth = this.photoparams.width;
   const canvasHeight = this.photoparams.height;

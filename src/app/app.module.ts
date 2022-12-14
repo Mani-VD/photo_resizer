@@ -9,13 +9,15 @@ import { PhotoheaderComponent } from './photoheader/photoheader.component';
 import { PhotofooterComponent } from './photofooter/photofooter.component';
 import { FormsModule } from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { DropzoneDirective } from './photodropzone.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhotoappComponent,
     PhotoheaderComponent,
-    PhotofooterComponent
+    PhotofooterComponent,
+    DropzoneDirective
   ],
   imports: [
     BrowserModule,
